@@ -1,11 +1,19 @@
 const express = require('express');
+const app = express();
 
-const app = express(); //Calling this function sets up a server
+const userRouter = require('./routes/users');
+const postRouter = require('./routes/posts');
 
+app.set('view engine', 'ejs');
 
-app.get('/', (req,res)=>{
-    console.log('Here');
-    res.send("Hello World!");
-}); //this function will run when someone goes to the root folder
+app.use('/users', userRouter);
+app.use('/posts', postRouter); 
 
-app.listen(3030); 
+app.get('/', (req, res) => {
+  console.log('Ish is cool!');
+  res.render('index', { user: 'Ish' });
+});
+
+app.listen(3030, () => {
+  console.log('Server running on port 3030');
+});
