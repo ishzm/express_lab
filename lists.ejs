@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .user {
+            border-bottom: 2px solid black;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Current Users</h1>
+   <table>
+    <th>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Gender</td>
+    <td>Age</td>
+    </th>
+    <% users.forEach(user=>{ %>
+      <tr>
+        <td>
+          <%= user.firstName %>
+        </td>
+        <td>
+          <%= user.lastName %>
+        </td>
+        <td>
+          <%= user.gender %>
+        </td>
+        <td>
+          <%= user.age %>
+        </td>
+      </tr>
+      <% }); %>
+  </table>
+</body>
+</html>
